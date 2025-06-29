@@ -1,0 +1,14 @@
+/* font family  */
+@font-face {
+  font-family: "TheMixArab";
+  src: url("../fonts/TheMixArab.ttf");
+  font-weight: 900;
+}
+@font-face {
+  font-family: "TheMixArab";
+  src: url("../fonts/TheMixArab-Regular.ttf");
+  font-weight: 400;
+}
+body {
+  font-family: "TheMixArab", sans-serif;
+}
