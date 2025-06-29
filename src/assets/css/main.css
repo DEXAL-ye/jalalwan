@@ -1,8 +1,23 @@
 @import "tailwindcss";
 @import './_fonts.css';
+
 @theme {
- --color-primary: #9C0B26;
- --color-secondary: #4B4B4B;
- --color-tertiary: #D6A756;
+    --color-primary: #9C0B26;
+    --color-secondary: #4B4B4B;
+    --color-tertiary: #D6A756;
 }
 
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #D6A756;
+}
