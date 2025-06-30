@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 // Import your local image
 import heroImage from '@images/hero-image.jpg';
 
@@ -13,7 +14,7 @@ const heroImageUrl = ref(heroImage);
         <div class="container mx-auto px-4 py-16">
             <div class="max-w-3xl mx-auto">
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 text-shadow">
-                    مرحبًا بكم في شركة جلوان
+                    {{ t('company_name') }}
                 </h1>
                 <p class="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto">
                     شركة رائدة في مجالها، تقدم حلولاً مبتكرة وخدمات عالية الجودة

@@ -1,4 +1,9 @@
 {
     "welcome": "Welcome",
-    "pageTitle": "My App - English"
+    "pageTitle": "My App - English",
+    "home": "Home",
+    "agent_system": "Agent System",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "company_name": "Jumlat Al-Alwan Trading Establishment"
 }
