@@ -20,4 +20,22 @@
     width: 80px;
     height: 4px;
     background-color: #D6A756;
+    :root {
+    --header-height: 4rem; /* Adjust based on your actual header height */
+}
+
+@media (min-width: 768px) {
+    :root {
+        --header-height: 5rem;
+    }
+}
+
+section#home-section {
+    height: calc(100vh - var(--header-height));
+    min-height: 500px;
+}
+}
+header {
+    background-color: transparent;
+    box-shadow: none;
 }

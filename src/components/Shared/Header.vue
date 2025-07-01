@@ -109,7 +109,7 @@ const setActivePage = (page: string) => {
 const navigateToSection = (nav: NavigationItem): void => {
     // Close mobile menu when navigating
     mobileMenuOpen.value = false;
-    
+
     if (route.path !== '/') {
         router.push('/').then(() => {
             scrollToSection(nav.id);
@@ -123,7 +123,7 @@ const navigateToSection = (nav: NavigationItem): void => {
 const scrollToSection = (hash: string): void => {
     // Update active page immediately
     emit('set-active-page', hash);
-    
+
     nextTick(() => {
         const section = document.getElementById(hash);
         if (section) {
@@ -152,16 +152,12 @@ const scrollToSection = (hash: string): void => {
 
                 <nav ref="desktopNavContainer" class="hidden md:block relative">
                     <ul class="flex space-x-1 space-x-reverse">
-                     <li v-for="(nav, index) in navigation" :key="index"
+                        <li v-for="(nav, index) in navigation" :key="index"
                             :ref="el => desktopNavItems[index] = el as HTMLElement | null">
-                           <button
-                                @click="navigateToSection(nav)"
-                                :class="{
-                                    'text-[#4B4B4B] hover:text-[#9C0B26]': activePage !== nav.id,
-                                    'text-[#9C0B26]': activePage === nav.id
-                                }"
-                                class="px-4 py-2 font-medium transition-colors relative"
-                            >
+                            <button @click="navigateToSection(nav)" :class="{
+                                'text-[#4B4B4B] hover:text-[#9C0B26]': activePage !== nav.id,
+                                'text-[#9C0B26]': activePage === nav.id
+                            }" class="px-4 py-2 font-medium transition-colors relative">
                                 {{ t(nav.title) }}
                             </button>
                         </li>

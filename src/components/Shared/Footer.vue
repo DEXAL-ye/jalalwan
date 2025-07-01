@@ -2,17 +2,19 @@
 import { ref, nextTick } from 'vue';
 import type { NavigationItem } from '../../types/var';
 import { useRoute, useRouter } from 'vue-router';
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
+const { locale } = useI18n();
 const emit = defineEmits(['set-active-page']);
 
 const route = useRoute();
 const router = useRouter();
 
 const navigation = ref<NavigationItem[]>([
-    { id: 'home', title: 'الرئيسية' },
-    { id: 'agents', title: 'الوكلاء' },
-    { id: 'about', title: 'من نحن' },
-    { id: 'contact', title: 'اتصل بنا' }
+    { id: 'home', title: 'home' },
+    { id: 'agents', title: 'agent_system' },
+    { id: 'about', title: 'about' },
+    { id: 'contact', title: 'contact' }
 ]);
 
 const navigateToSection = (nav: NavigationItem): void => {
@@ -46,7 +48,8 @@ const scrollToSection = (hash: string): void => {
                 <div>
                     <h3 class="text-xl font-bold mb-4 relative pb-2">
                         شركة جلوان
-                        <div class="absolute bottom-0 left-0 w-10 h-1 bg-[#D6A756]"></div>
+                        <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                            :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
                     </h3>
                     <p class="text-gray-300 mb-4">
                         شركة رائدة في مجالها، تقدم حلولاً مبتكرة وخدمات عالية الجودة لعملائها في المملكة العربية
@@ -75,13 +78,14 @@ const scrollToSection = (hash: string): void => {
                 <div>
                     <h3 class="text-xl font-bold mb-4 relative pb-2">
                         روابط سريعة
-                        <div class="absolute bottom-0 left-0 w-10 h-1 bg-[#D6A756]"></div>
+                        <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                            :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
                     </h3>
                     <ul class="space-y-2">
                         <li v-for="(nav, index) in navigation" :key="index">
                             <a href="#" @click.prevent="navigateToSection(nav)"
                                 class="text-gray-300 hover:text-[#D6A756] transition-colors">
-                                {{ nav.title }}
+                                {{ t(nav.title) }}
                             </a>
                         </li>
                     </ul>
@@ -90,7 +94,8 @@ const scrollToSection = (hash: string): void => {
                 <div>
                     <h3 class="text-xl font-bold mb-4 relative pb-2">
                         اتصل بنا
-                        <div class="absolute bottom-0 left-0 w-10 h-1 bg-[#D6A756]"></div>
+                       <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                            :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
                     </h3>
                     <ul class="space-y-3 text-gray-300">
                         <li class="flex items-start">
