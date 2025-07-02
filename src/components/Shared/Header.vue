@@ -22,7 +22,7 @@ const navigation = ref<NavigationItem[]>([
     { id: 'home', title: 'home' },
     { id: 'agents', title: 'agent_system' },
     { id: 'about', title: 'about' },
-    { id: 'contact', title: 'contact' }
+    { id: 'contact', title: 'contact_us' }
 ]);
 
 // Underline animation refs

@@ -14,7 +14,7 @@ const navigation = ref<NavigationItem[]>([
     { id: 'home', title: 'home' },
     { id: 'agents', title: 'agent_system' },
     { id: 'about', title: 'about' },
-    { id: 'contact', title: 'contact' }
+    { id: 'contact', title: 'contact_us' }
 ]);
 
 const navigateToSection = (nav: NavigationItem): void => {
@@ -47,37 +47,19 @@ const scrollToSection = (hash: string): void => {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <h3 class="text-xl font-bold mb-4 relative pb-2">
-                        شركة جلوان
+                        {{ t('company_name') }}
                         <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
                             :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
                     </h3>
                     <p class="text-gray-300 mb-4">
-                        شركة رائدة في مجالها، تقدم حلولاً مبتكرة وخدمات عالية الجودة لعملائها في المملكة العربية
-                        السعودية والمنطقة.
+                        {{ t('hero_description') }}
                     </p>
-                    <div class="flex space-x-3 space-x-reverse">
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D6A756] transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D6A756] transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D6A756] transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#D6A756] transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
+                  
                 </div>
 
                 <div>
                     <h3 class="text-xl font-bold mb-4 relative pb-2">
-                        روابط سريعة
+                        {{ t('footer.quick_links') }}
                         <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
                             :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
                     </h3>
@@ -93,29 +75,35 @@ const scrollToSection = (hash: string): void => {
 
                 <div>
                     <h3 class="text-xl font-bold mb-4 relative pb-2">
-                        اتصل بنا
-                       <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                        {{ t('footer.contact') }}
+                        <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
                             :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
                     </h3>
                     <ul class="space-y-3 text-gray-300">
                         <li class="flex items-start">
                             <i class="fas fa-phone mt-1 mr-2 text-[#D6A756]"></i>
-                            <span>+9665505651446</span>
+                            <a :href="`https://wa.me/${t('footer.phone').replace(/[^\d]/g, '')}`" target="_blank"
+                                class="hover:underline hover:text-[#D6A756] transition-colors" dir="ltr">
+                                {{ t('footer.phone') }}
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-2 text-[#D6A756]"></i>
-                            <span>info@jalalwan.com</span>
+                            <a :href="`mailto:${t('footer.email')}`"
+                                class="hover:underline hover:text-[#D6A756] transition-colors">
+                                {{ t('footer.email') }}
+                            </a>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-2 text-[#D6A756]"></i>
-                            <span>حي السلامة، جدة، المملكة العربية السعودية</span>
+                            <span>{{ t('footer.address') }}</span>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="pt-6 border-t border-gray-700 text-center text-gray-400">
-                <p>جميع الحقوق محفوظة &copy; 2023 شركة جلوان | السجل التجاري: 4030061641</p>
+                <p>{{ t('footer.copyright', { year: new Date().getFullYear() }) }}</p>
             </div>
         </div>
     </footer>

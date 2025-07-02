@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// No complex logic needed for this component
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 </script>
 
 <template>
@@ -7,28 +8,23 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col-reverse md:flex-row items-center gap-10">
                 <!-- Text Section -->
-                <div class="w-full md:w-1/2 text-right">
+                <div class="w-full md:w-1/2 text-start">
                     <h2 class="text-4xl md:text-5xl font-bold text-[#9C0B26] mb-6">
-                        شريكك الاستراتيجي في توزيع مستحضرات التجميل الفاخرة
+                        {{ t('homepage.title') }}
                     </h2>
                     <p class="text-[#4B4B4B] text-lg mb-5 leading-relaxed">
-                        مؤسسة جملة الألوان التجارية - موزع معتمد لمنتجات التجميل الراقية.
-                        نمتلك وكالة حصرية لعلامة مكياج مرموقة، ونطمح لتوسيع محفظتنا
-                        بوكالات جديدة في قطاع الجمال والعناية.
+
+
+                        {{ t('homepage.description') }}
                     </p>
                     <p class="text-[#4B4B4B] text-lg mb-8 leading-relaxed">
-                        نقدم شبكة توزيع شاملة تغطي كبرى منافذ البيع، خبرة تسويقية متخصصة،
-                        وبنية لوجستية متكاملة لضمان وصول منتجاتك إلى المستهلك النهائي
-                        بجودة وكفاءة.
+
+                        {{ t('homepage.description2') }}
                     </p>
                     <div class="flex gap-4">
                         <a href="#contact"
                             class="bg-[#D6A756] hover:bg-[#c59442] text-[#222222] font-bold px-8 py-3 rounded-lg transition-colors">
-                            تواصل معنا
-                        </a>
-                        <a href="#agencies"
-                            class="border-2 border-[#9C0B26] hover:bg-[#9C0B26] hover:text-white text-[#9C0B26] font-bold px-8 py-3 rounded-lg transition-colors">
-                            وكالاتنا
+                            {{ t('homepage.contact') }}
                         </a>
                     </div>
                 </div>
