@@ -82,17 +82,17 @@ const scrollToSection = (hash: string): void => {
                     <ul class="space-y-3 text-gray-300">
                         <li class="flex items-start">
                             <i class="fas fa-phone mt-1 mr-2 text-[#D6A756]"></i>
-                            <a :href="`https://wa.me/${t('footer.phone').replace(/[^\d]/g, '')}`" target="_blank"
+                            <span target="_blank"
                                 class="hover:underline hover:text-[#D6A756] transition-colors" dir="ltr">
                                 {{ t('footer.phone') }}
-                            </a>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-2 text-[#D6A756]"></i>
-                            <a :href="`mailto:${t('footer.email')}`"
+                            <span
                                 class="hover:underline hover:text-[#D6A756] transition-colors">
                                 {{ t('footer.email') }}
-                            </a>
+                            </span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-2 text-[#D6A756]"></i>
