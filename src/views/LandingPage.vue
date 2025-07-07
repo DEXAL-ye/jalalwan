@@ -6,7 +6,7 @@ import Home from '../components/Shared/Home.vue';
 import About from '../components/Shared/About.vue';
 import Agents from '../components/Shared/Agent.vue';
 // import Contact from '../components/Shared/Contact.vue';
-import Footer from '../components/Shared/Footer.vue';
+// import Footer from '../components/Shared/Footer.vue';
 import { useI18n } from 'vue-i18n'
 const { t, locale } = useI18n()
 const activePage = ref('home');
