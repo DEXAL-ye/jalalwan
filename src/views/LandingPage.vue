@@ -16,15 +16,15 @@ const setActivePage = (page: string) => {
 import type { NavigationItem } from '../types/var';
 import { useRoute, useRouter } from 'vue-router';
 
-const formatPhoneNumber = (phone: string) => {
-  return phone.replace(/\D/g, '');
-};
+// const formatPhoneNumber = (phone: string) => {
+//   return phone.replace(/\D/g, '');
+// };
 
 // Precompute all phone numbers to avoid complex template expressions
 const contactPhoneValue = computed(() => t('contact.phone_value'));
 const footerPhoneValue = computed(() => t('footer.phone'));
-const formattedContactPhone = computed(() => formatPhoneNumber(contactPhoneValue.value));
-const formattedFooterPhone = computed(() => formatPhoneNumber(footerPhoneValue.value));
+// const formattedContactPhone = computed(() => formatPhoneNumber(contactPhoneValue.value));
+// const formattedFooterPhone = computed(() => formatPhoneNumber(footerPhoneValue.value));
 
 const emit = defineEmits(['set-active-page']);
 
@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
                   <div>
                     <h4 class="font-bold text-lg">{{ t('contact.phone_label') }}</h4>
                     <p class="mt-1">
-                      <a :href="`https://wa.me/${formattedContactPhone}`" target="_blank"
+                      <a href="" target="_blank"
                         class="hover:underline transition-all duration-300 hover:text-[#D6A756]" dir="ltr">
                         {{ contactPhoneValue }}
                       </a>
@@ -249,7 +249,7 @@ onBeforeUnmount(() => {
             <ul class="space-y-3 text-gray-300">
               <li class="flex items-start">
                 <i class="fas fa-phone mt-1 mr-2 text-[#D6A756]"></i>
-                <a :href="`https://wa.me/${formattedFooterPhone}`" target="_blank"
+                <a href="" target="_blank"
                   class="hover:underline hover:text-[#D6A756] transition-colors" dir="ltr">
                   {{ footerPhoneValue }}
                 </a>
