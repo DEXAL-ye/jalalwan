@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
     <Header :active-page="activePage" @set-active-page="setActivePage" />
     <Hero />
     <main class="container mx-auto px-4 py-12 flex-grow">
-      <Home id="home" class="pt-28"  />
+      <Home id="home" class="pt-28" />
       <Agents id="agents" class="pt-28" />
       <About id="about" class="pt-28" />
       <Contact id="contact" class="pt-28" />
@@ -72,8 +72,15 @@ onBeforeUnmount(() => {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .text-shadow {

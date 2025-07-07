@@ -32,10 +32,10 @@ const scrollToSection = (hash: string): void => {
     nextTick(() => {
         const section = document.getElementById(hash);
         if (section) {
-            section.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            // Add timeout to ensure DOM update
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
         }
     });
 };
@@ -54,7 +54,7 @@ const scrollToSection = (hash: string): void => {
                     <p class="text-gray-300 mb-4">
                         {{ t('hero_description') }}
                     </p>
-                  
+
                 </div>
 
                 <div>
