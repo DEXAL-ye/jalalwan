@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import Header from '../components/Shared/Header.vue';
 import Hero from '../components/Shared/HeroSection.vue';
 import Home from '../components/Shared/Home.vue';
 import About from '../components/Shared/About.vue';
 import Agents from '../components/Shared/Agent.vue';
-import { useI18n } from 'vue-i18n'
-const { t, locale } = useI18n()
+// import { useI18n } from 'vue-i18n'
+// const { t } = useI18n()
 const activePage = ref('home');
 
 const setActivePage = (page: string) => {
   activePage.value = page;
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
-import type { NavigationItem } from '../types/var';
-import { useRoute, useRouter } from 'vue-router';
+// import type { NavigationItem } from '../types/var';
+// import { useRoute, useRouter } from 'vue-router';
 
 // const formatPhoneNumber = (phone: string) => {
 //   return phone.replace(/\D/g, '');
@@ -22,48 +22,48 @@ import { useRoute, useRouter } from 'vue-router';
 
 // Precompute all phone numbers to avoid complex template expressions
 // const contactPhoneValue = computed(() => t('contact.phone_value'));
-const footerPhoneValue = computed(() => t('footer.phone'));
+// const footerPhoneValue = computed(() => t('footer.phone'));
 // const formattedContactPhone = computed(() => formatPhoneNumber(contactPhoneValue.value));
 // const formattedFooterPhone = computed(() => formatPhoneNumber(footerPhoneValue.value));
 
 const emit = defineEmits(['set-active-page']);
 
-const route = useRoute();
-const router = useRouter();
+// const route = useRoute();
+// const router = useRouter();
 
-const navigation = ref<NavigationItem[]>([
-  { id: 'home', title: 'home' },
-  { id: 'agents', title: 'agent_system' },
-  { id: 'about', title: 'about' },
-  { id: 'contact', title: 'contact_us' }
-]);
+// const navigation = ref<NavigationItem[]>([
+//   { id: 'home', title: 'home' },
+//   { id: 'agents', title: 'agent_system' },
+//   { id: 'about', title: 'about' },
+//   { id: 'contact', title: 'contact_us' }
+// ]);
 
 // Predefined URLs
 // const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.444062526807!2d39.18273831541619!3d21.56826177482348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d06eb0eada53%3A0xa265b30c08915e0f!2z2KfZhNmF2LnZhdiv2Kog2KfZhNiv2YjZhdin2YU!5e0!3m2!1sen!2ssa!4v1658322347658!5m2!1sen!2ssa";
 // const mapDirectionsUrl = "https://www.google.com/maps/place/JESA6619,+6619+Abu+Al+Fadl+Al+Mouhsi,+2603,+As+Salamah+District,+Jeddah+23436,+Saudi+Arabia/@21.5802697,39.1470876,18z/data=!3m1!4b1!4m10!1m2!2m1!1z2K3ZiiDYp9mE2LPZhNin2YXYqS-AtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4!3m6!1s0x15c3da848293561b:0x3e8c805069fa976e!8m2!3d21.5802697!4d39.1490991!15sCqIB2K3ZiiDYp9mE2LPZhNin2YXYqS-AtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4kgERY29tcG91bmRfYnVpbGRpbmfgAQA!16s%2Fg%2F11k6bby4xc?entry=ttu&g_ep=EgoyMDI1MDYyOS4wIKXMDSoASAFQAw%3D%3D";
 
-const navigateToSection = (nav: NavigationItem): void => {
-  if (route.path !== '/') {
-    router.push('/').then(() => {
-      scrollToSection(nav.id);
-    });
-  } else {
-    scrollToSection(nav.id);
-  }
-};
+// const navigateToSection = (nav: NavigationItem): void => {
+//   if (route.path !== '/') {
+//     router.push('/').then(() => {
+//       scrollToSection(nav.id);
+//     });
+//   } else {
+//     scrollToSection(nav.id);
+//   }
+// };
 
-const scrollToSection = (hash: string): void => {
-  emit('set-active-page', hash);
-  setTimeout(() => {
-    const section = document.getElementById(hash);
-    if (section) {
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  }, 100);
-};
+// const scrollToSection = (hash: string): void => {
+//   emit('set-active-page', hash);
+//   setTimeout(() => {
+//     const section = document.getElementById(hash);
+//     if (section) {
+//       section.scrollIntoView({
+//         behavior: 'smooth',
+//         block: 'start'
+//       });
+//     }
+//   }, 100);
+// };
 
 // Detect active section on scroll
 const handleScroll = () => {
@@ -209,7 +209,7 @@ onBeforeUnmount(() => {
         </div>
       </div> -->
     </main>
-    <footer class="bg-[#4B4B4B] text-white pt-12 pb-6">
+    <!-- <footer class="bg-[#4B4B4B] text-white pt-12 pb-6">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
@@ -271,7 +271,7 @@ onBeforeUnmount(() => {
           <p>{{ t('footer.copyright', { year: new Date().getFullYear() }) }}</p>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
