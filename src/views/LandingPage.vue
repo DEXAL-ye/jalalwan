@@ -57,9 +57,9 @@ onBeforeUnmount(() => {
     <main class="container mx-auto px-4 py-12 flex-grow">
       <Home id="home" class="pt-28"  />
       <Agents id="agents" class="pt-28" />
-      <About id="about" class="pt-28" />
+      <About  class="pt-28" />
       <!-- Updated Contact component -->
-      <Contact class="pt-28" />
+      <!-- <Contact class="pt-28" /> -->
     </main>
     <!-- Updated Footer component -->
     <Footer @set-active-page="setActivePage" />
