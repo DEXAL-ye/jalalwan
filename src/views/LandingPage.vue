@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import Header from '../components/Shared/Header.vue';
 import Hero from '../components/Shared/HeroSection.vue';
 import Home from '../components/Shared/Home.vue';
 import About from '../components/Shared/About.vue';
 import Agents from '../components/Shared/Agent.vue';
-// import Contact from '../components/Shared/Contact.vue';
-// import Footer from '../components/Shared/Footer.vue';
 import { useI18n } from 'vue-i18n'
 const { t, locale } = useI18n()
 const activePage = ref('home');
@@ -18,7 +16,9 @@ const setActivePage = (page: string) => {
 import type { NavigationItem } from '../types/var';
 import { useRoute, useRouter } from 'vue-router';
 
-
+const formatPhoneNumber = (phone: string) => {
+  return phone.replace(/\D/g, ''); // Simplify regex and move to function
+};
 const emit = defineEmits(['set-active-page']);
 
 const route = useRoute();
@@ -43,7 +43,7 @@ const navigateToSection = (nav: NavigationItem): void => {
 
 const scrollToSection = (hash: string): void => {
   emit('set-active-page', hash);
-  nextTick(() => {
+  setTimeout(() => { // Replace nextTick with setTimeout
     const section = document.getElementById(hash);
     if (section) {
       section.scrollIntoView({
@@ -51,7 +51,7 @@ const scrollToSection = (hash: string): void => {
         block: 'start'
       });
     }
-  });
+  }, 100); // Short delay
 };
 // Detect active section on scroll
 const handleScroll = () => {
@@ -113,8 +113,8 @@ onBeforeUnmount(() => {
             <div class="w-full lg:w-1/2 bg-[#9C0B26] text-white rounded-2xl p-8 shadow-xl">
               <h3 class="text-2xl font-bold mb-8 relative pb-4">
                 {{ t('contact.info_heading') }}
-                <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]" :class="locale === 'ar' ? 'right-0' : 'left-0'">
-                </div>
+                <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                  :class="{ 'right-0': locale === 'ar', 'left-0': locale !== 'ar' }"></div>
               </h3>
 
               <div class="space-y-7">
@@ -126,8 +126,8 @@ onBeforeUnmount(() => {
                   <div>
                     <h4 class="font-bold text-lg">{{ t('contact.phone_label') }}</h4>
                     <p class="mt-1">
-                      <a :href="`https://wa.me/${t('contact.phone_value').replace(/[^\d]/g, '')}`" target="_blank"
-                        class="hover:underline transition-all  duration-300 hover:text-[#D6A756]" dir="ltr">
+                      <a :href="`https://wa.me/${formatPhoneNumber(t('contact.phone_value'))}`" target="_blank"
+                        class="hover:underline transition-all duration-300 hover:text-[#D6A756]" dir="ltr">
                         {{ t('contact.phone_value') }}
                       </a>
                     </p>
@@ -239,7 +239,7 @@ onBeforeUnmount(() => {
             <ul class="space-y-3 text-gray-300">
               <li class="flex items-start">
                 <i class="fas fa-phone mt-1 mr-2 text-[#D6A756]"></i>
-                <a :href="`https://wa.me/${t('footer.phone').replace(/[^\d]/g, '')}`" target="_blank"
+                <a :href="`https://wa.me/${formatPhoneNumber(t('footer.phone'))}`" target="_blank"
                   class="hover:underline hover:text-[#D6A756] transition-colors" dir="ltr">
                   {{ t('footer.phone') }}
                 </a>
