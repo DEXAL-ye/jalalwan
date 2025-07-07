@@ -82,7 +82,7 @@ const scrollToSection = (hash: string): void => {
                     <ul class="space-y-3 text-gray-300">
                         <li class="flex items-start">
                             <i class="fas fa-phone mt-1 mr-2 text-[#D6A756]"></i>
-                            <span target="_blank"
+                            <span 
                                 class="hover:underline hover:text-[#D6A756] transition-colors" dir="ltr">
                                 {{ t('footer.phone') }}
                             </span>
