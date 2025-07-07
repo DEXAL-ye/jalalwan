@@ -21,7 +21,7 @@ import { useRoute, useRouter } from 'vue-router';
 // };
 
 // Precompute all phone numbers to avoid complex template expressions
-const contactPhoneValue = computed(() => t('contact.phone_value'));
+// const contactPhoneValue = computed(() => t('contact.phone_value'));
 const footerPhoneValue = computed(() => t('footer.phone'));
 // const formattedContactPhone = computed(() => formatPhoneNumber(contactPhoneValue.value));
 // const formattedFooterPhone = computed(() => formatPhoneNumber(footerPhoneValue.value));
@@ -39,8 +39,8 @@ const navigation = ref<NavigationItem[]>([
 ]);
 
 // Predefined URLs
-const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.444062526807!2d39.18273831541619!3d21.56826177482348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d06eb0eada53%3A0xa265b30c08915e0f!2z2KfZhNmF2LnZhdiv2Kog2KfZhNiv2YjZhdin2YU!5e0!3m2!1sen!2ssa!4v1658322347658!5m2!1sen!2ssa";
-const mapDirectionsUrl = "https://www.google.com/maps/place/JESA6619,+6619+Abu+Al+Fadl+Al+Mouhsi,+2603,+As+Salamah+District,+Jeddah+23436,+Saudi+Arabia/@21.5802697,39.1470876,18z/data=!3m1!4b1!4m10!1m2!2m1!1z2K3ZiiDYp9mE2LPZhNin2YXYqS-AtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4!3m6!1s0x15c3da848293561b:0x3e8c805069fa976e!8m2!3d21.5802697!4d39.1490991!15sCqIB2K3ZiiDYp9mE2LPZhNin2YXYqS-AtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4kgERY29tcG91bmRfYnVpbGRpbmfgAQA!16s%2Fg%2F11k6bby4xc?entry=ttu&g_ep=EgoyMDI1MDYyOS4wIKXMDSoASAFQAw%3D%3D";
+// const mapEmbedUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.444062526807!2d39.18273831541619!3d21.56826177482348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d06eb0eada53%3A0xa265b30c08915e0f!2z2KfZhNmF2LnZhdiv2Kog2KfZhNiv2YjZhdin2YU!5e0!3m2!1sen!2ssa!4v1658322347658!5m2!1sen!2ssa";
+// const mapDirectionsUrl = "https://www.google.com/maps/place/JESA6619,+6619+Abu+Al+Fadl+Al+Mouhsi,+2603,+As+Salamah+District,+Jeddah+23436,+Saudi+Arabia/@21.5802697,39.1470876,18z/data=!3m1!4b1!4m10!1m2!2m1!1z2K3ZiiDYp9mE2LPZhNin2YXYqS-AtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4!3m6!1s0x15c3da848293561b:0x3e8c805069fa976e!8m2!3d21.5802697!4d39.1490991!15sCqIB2K3ZiiDYp9mE2LPZhNin2YXYqS-AtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4kgERY29tcG91bmRfYnVpbGRpbmfgAQA!16s%2Fg%2F11k6bby4xc?entry=ttu&g_ep=EgoyMDI1MDYyOS4wIKXMDSoASAFQAw%3D%3D";
 
 const navigateToSection = (nav: NavigationItem): void => {
   if (route.path !== '/') {
@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
       <Home id="home" class="pt-28" />
       <Agents id="agents" class="pt-28" />
       <About id="about" class="pt-28" />
-      <div id="contact" class="animate-fadeIn py-16 pt-28 bg-[#FFF9F2]">
+      <!-- <div id="contact" class="animate-fadeIn py-16 pt-28 bg-[#FFF9F2]">
         <div class="container mx-auto px-4">
           <div class="text-center mb-16 relative">
             <h2 class="text-3xl font-bold text-[#9C0B26] inline-block pb-3">
@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
           </div>
 
           <div class="flex flex-col lg:flex-row gap-10 items-stretch">
-            <!-- Contact Information -->
+          
             <div class="w-full lg:w-1/2 bg-[#9C0B26] text-white rounded-2xl p-8 shadow-xl">
               <h3 class="text-2xl font-bold mb-8 relative pb-4">
                 {{ t('contact.info_heading') }}
@@ -129,7 +129,7 @@ onBeforeUnmount(() => {
               </h3>
 
               <div class="space-y-7">
-                <!-- Phone with WhatsApp link -->
+               
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-phone-alt text-[#D6A756] text-xl"></i>
@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <!-- Email with mailto link -->
+             
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-envelope text-[#D6A756] text-xl"></i>
@@ -161,7 +161,7 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <!-- Address -->
+         
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-map-marker-alt text-[#D6A756] text-xl"></i>
@@ -174,7 +174,7 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <!-- Commercial Registration -->
+               
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-file-alt text-[#D6A756] text-xl"></i>
@@ -187,7 +187,6 @@ onBeforeUnmount(() => {
               </div>
             </div>
 
-            <!-- Map Section -->
             <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-xl relative">
               <div class="h-full">
                 <iframe
@@ -208,7 +207,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </main>
     <footer class="bg-[#4B4B4B] text-white pt-12 pb-6">
       <div class="container mx-auto px-4">
