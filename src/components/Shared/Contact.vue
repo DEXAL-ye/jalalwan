@@ -35,12 +35,12 @@ const { t, locale } = useI18n()
                             <div>
                                 <h4 class="font-bold text-lg">{{ t('contact.phone_label') }}</h4>
                                 <p class="mt-1">
-                                    <!-- <a :href="`https://wa.me/${t('contact.phone_value').replace(/[^\d]/g, '')}`"
+                                    <a href="https://wa.me/+9665505651446"
                                         target="_blank"
                                         class="hover:underline transition-all  duration-300 hover:text-[#D6A756]"
                                         dir="ltr">
                                         {{ t('contact.phone_value') }}
-                                    </a> -->
+                                    </a>
                                 </p>
                             </div>
                         </div>
@@ -54,10 +54,10 @@ const { t, locale } = useI18n()
                             <div>
                                 <h4 class="font-bold text-lg">{{ t('contact.email_label') }}</h4>
                                 <p class="mt-1">
-                                    <!-- <a :href="`mailto:${t('contact.email_value')}`"
+                                    <a href="mailto:info@jalalwan.com"
                                         class="hover:underline transition-all duration-300 hover:text-[#D6A756]">
                                         {{ t('contact.email_value') }}
-                                    </a> -->
+                                    </a>
                                 </p>
                             </div>
                         </div>
