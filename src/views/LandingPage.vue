@@ -31,6 +31,8 @@ const navigation = ref<NavigationItem[]>([
   { id: 'contact', title: 'contact_us' }
 ]);
 
+const mapDirectionsUrl = "https://www.google.com/maps/place/JESA6619,+6619+Abu+Al+Fadl+Al+Mouhsi,+2603,+As+Salamah+District,+Jeddah+23436,+Saudi+Arabia/@21.5802697,39.1470876,18z/data=!3m1!4b1!4m10!1m2!2m1!1z2K3ZiiDYp9mE2LPZhNin2YXYqSAtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4!3m6!1s0x15c3da848293561b:0x3e8c805069fa976e!8m2!3d21.5802697!4d39.1490991!15sCqIB2K3ZiiDYp9mE2LPZhNin2YXYqSAtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4kgERY29tcG91bmRfYnVpbGRpbmfgAQA!16s%2Fg%2F11k6bby4xc?entry=ttu&g_ep=EgoyMDI1MDYyOS4wIKXMDSoASAFQAw%3D%3D";
+
 const navigateToSection = (nav: NavigationItem): void => {
   if (route.path !== '/') {
     router.push('/').then(() => {
@@ -43,7 +45,7 @@ const navigateToSection = (nav: NavigationItem): void => {
 
 const scrollToSection = (hash: string): void => {
   emit('set-active-page', hash);
-  setTimeout(() => { // Replace nextTick with setTimeout
+  setTimeout(() => {
     const section = document.getElementById(hash);
     if (section) {
       section.scrollIntoView({
@@ -51,8 +53,9 @@ const scrollToSection = (hash: string): void => {
         block: 'start'
       });
     }
-  }, 100); // Short delay
+  }, 100);
 };
+
 // Detect active section on scroll
 const handleScroll = () => {
   const sections = [
@@ -66,7 +69,6 @@ const handleScroll = () => {
   for (const section of sections) {
     if (!section.element) continue;
     const rect = section.element.getBoundingClientRect();
-    // Detect when section top is near middle of viewport
     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
       currentSection = section.id;
       break;
@@ -80,7 +82,7 @@ const handleScroll = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
-  handleScroll(); // Initialize on load
+  handleScroll();
 });
 
 onBeforeUnmount(() => {
@@ -109,7 +111,6 @@ onBeforeUnmount(() => {
           </div>
 
           <div class="flex flex-col lg:flex-row gap-10 items-stretch">
-            <!-- Contact Information -->
             <div class="w-full lg:w-1/2 bg-[#9C0B26] text-white rounded-2xl p-8 shadow-xl">
               <h3 class="text-2xl font-bold mb-8 relative pb-4">
                 {{ t('contact.info_heading') }}
@@ -118,7 +119,6 @@ onBeforeUnmount(() => {
               </h3>
 
               <div class="space-y-7">
-                <!-- Phone with WhatsApp link -->
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-phone-alt text-[#D6A756] text-xl"></i>
@@ -134,7 +134,6 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <!-- Email with mailto link -->
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-envelope text-[#D6A756] text-xl"></i>
@@ -150,7 +149,6 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <!-- Address -->
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-map-marker-alt text-[#D6A756] text-xl"></i>
@@ -163,7 +161,6 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
 
-                <!-- Commercial Registration -->
                 <div class="flex items-start">
                   <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                     <i class="fas fa-file-alt text-[#D6A756] text-xl"></i>
@@ -176,7 +173,6 @@ onBeforeUnmount(() => {
               </div>
             </div>
 
-            <!-- Map Section -->
             <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-xl relative">
               <div class="h-full">
                 <iframe
@@ -186,8 +182,7 @@ onBeforeUnmount(() => {
                 </iframe>
 
                 <div class="absolute bottom-4 right-4 bg-white rounded-lg shadow-md py-2 px-4">
-                  <a href="https://www.google.com/maps/place/JESA6619,+6619+Abu+Al+Fadl+Al+Mouhsi,+2603,+As+Salamah+District,+Jeddah+23436,+Saudi+Arabia/@21.5802697,39.1470876,18z/data=!3m1!4b1!4m10!1m2!2m1!1z2K3ZiiDYp9mE2LPZhNin2YXYqSAtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4!3m6!1s0x15c3da848293561b:0x3e8c805069fa976e!8m2!3d21.5802697!4d39.1490991!15sCqIB2K3ZiiDYp9mE2LPZhNin2YXYqSAtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4kgERY29tcG91bmRfYnVpbGRpbmfgAQA!16s%2Fg%2F11k6bby4xc?entry=ttu&g_ep=EgoyMDI1MDYyOS4wIKXMDSoASAFQAw%3D%3D"
-                    target="_blank"
+                  <a :href="mapDirectionsUrl" target="_blank"
                     class="text-[#9C0B26] font-bold flex items-center hover:text-[#D6A756] transition-colors">
                     <i class="fas fa-directions mr-2"></i>
                     {{ t('contact.directions') }}
@@ -205,20 +200,19 @@ onBeforeUnmount(() => {
           <div>
             <h3 class="text-xl font-bold mb-4 relative pb-2">
               {{ t('company_name') }}
-              <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]" :class="locale === 'ar' ? 'right-0' : 'left-0'">
-              </div>
+              <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                :class="{ 'right-0': locale === 'ar', 'left-0': locale !== 'ar' }"></div>
             </h3>
             <p class="text-gray-300 mb-4">
               {{ t('hero_description') }}
             </p>
-
           </div>
 
           <div>
             <h3 class="text-xl font-bold mb-4 relative pb-2">
               {{ t('footer.quick_links') }}
-              <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]" :class="locale === 'ar' ? 'right-0' : 'left-0'">
-              </div>
+              <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                :class="{ 'right-0': locale === 'ar', 'left-0': locale !== 'ar' }"></div>
             </h3>
             <ul class="space-y-2">
               <li v-for="(nav, index) in navigation" :key="index">
@@ -233,8 +227,8 @@ onBeforeUnmount(() => {
           <div>
             <h3 class="text-xl font-bold mb-4 relative pb-2">
               {{ t('footer.contact') }}
-              <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]" :class="locale === 'ar' ? 'right-0' : 'left-0'">
-              </div>
+              <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                :class="{ 'right-0': locale === 'ar', 'left-0': locale !== 'ar' }"></div>
             </h3>
             <ul class="space-y-3 text-gray-300">
               <li class="flex items-start">
