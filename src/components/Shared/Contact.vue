@@ -35,12 +35,12 @@ const { t, locale } = useI18n()
                             <div>
                                 <h4 class="font-bold text-lg">{{ t('contact.phone_label') }}</h4>
                                 <p class="mt-1">
-                                    <!-- <span 
+                                    <span 
                                         
                                         class="hover:underline transition-all  duration-300 hover:text-[#D6A756]"
                                         dir="ltr">
-                                        {{ t('contact.phone_value') }}
-                                    </span> -->
+                                        +9665505651446
+                                    </span>
                                 </p>
                             </div>
                         </div>
