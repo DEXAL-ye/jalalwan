@@ -5,8 +5,8 @@ import Hero from '../components/Shared/HeroSection.vue';
 import Home from '../components/Shared/Home.vue';
 import About from '../components/Shared/About.vue';
 import Agents from '../components/Shared/Agent.vue';
-import Contact from '../components/Shared/Contact.vue';
 import Footer from '../components/Shared/Footer.vue';
+import Contact from '../components/Shared/Contact.vue'; // Updated Contact component
 
 const activePage = ref('home');
 
@@ -58,8 +58,10 @@ onBeforeUnmount(() => {
       <Home id="home" class="pt-28"  />
       <Agents id="agents" class="pt-28" />
       <About id="about" class="pt-28" />
-      <Contact id="contact" class="pt-28" />
+      <!-- Updated Contact component -->
+      <Contact class="pt-28" />
     </main>
+    <!-- Updated Footer component -->
     <Footer @set-active-page="setActivePage" />
   </div>
 </template>
