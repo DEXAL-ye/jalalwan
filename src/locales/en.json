@@ -1,15 +1,15 @@
 {
     "welcome": "Welcome",
-    "pageTitle": "Jumlat Al-Alwan Trading Establishment - English",
+    "pageTitle": "Jumlat Al-Alwan   - English",
     "home": "Home",
     "agent_system": "Agent System",
     "about": "About Us",
     "contact_us": "Contact Us",
-    "company_name": "Jumlat Al-Alwan Trading Establishment",
+    "company_name": "Jumlat Al-Alwan ",
     "hero_description": "We connect global brands with their audience professionally. We hold exclusive agency rights for prestigious makeup products and aim to expand our portfolio with new agencies. We offer an intelligent distribution network, marketing expertise in the beauty sector, and unprecedented access to retail outlets. Make your products part of our success.",
     "homepage": {
         "title": "Your Strategic Partner in Distributing Luxury Cosmetics",
-        "description": "Jumlat Al-Alwan Trading Establishment - Authorized distributor of premium beauty products. We hold exclusive agency rights for a prestigious makeup brand and aim to expand our portfolio with new agencies in the beauty and care sector.",
+        "description": "Jumlat Al-Alwan   - Authorized distributor of premium beauty products. We hold exclusive agency rights for a prestigious makeup brand and aim to expand our portfolio with new agencies in the beauty and care sector.",
         "description2": "We provide a comprehensive distribution network covering major retail outlets, specialized marketing expertise, and an integrated logistics infrastructure to ensure your products reach the end consumer with quality and efficiency.",
         "contact": "Contact Us"
     },
@@ -46,7 +46,7 @@
     },
     "mission_vision": {
         "title": "Our Mission and Vision",
-        "paragraph1": "<span class='font-bold text-[#9C0B26]'>Jumlah Alwan Trading Foundation</span> was established to be a strategic partner for global brands in the cosmetics sector. We started our journey by representing one agency and achieved widespread presence in the local market thanks to our strong distribution network.",
+        "paragraph1": "<span class='font-bold text-[#9C0B26]'>Jumlah Alwan  Foundation</span> was established to be a strategic partner for global brands in the cosmetics sector. We started our journey by representing one agency and achieved widespread presence in the local market thanks to our strong distribution network.",
         "paragraph2": "Today, we seek to expand our portfolio of luxury commercial agencies to be the bridge connecting premium global brands with retailers in the region. We aspire to become the primary distribution hub for beauty products in the Middle East by 2028."
     },
     "core_values": {
@@ -113,6 +113,6 @@
     "phone": "+9665505651446",
     "email": "info@jalalwan.com",
     "address": "As Salamah Dist, Jeddah, Kingdom of Saudi Arabia",
-    "copyright": "All rights reserved © {year} Jumlat Al-Alwan Trading Establishment | Commercial Registration: 4030061641"
+    "copyright": "All rights reserved © {year} Jumlat Al-Alwan   | Commercial Registration: 4030061641"
   }
 }

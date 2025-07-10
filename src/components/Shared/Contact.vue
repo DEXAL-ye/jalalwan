@@ -26,8 +26,8 @@ const { t, locale } = useI18n()
                     </h3>
 
                     <div class="space-y-7">
-                        <!-- Phone with WhatsApp link -->
-                        <div class="flex items-start">
+                       
+                        <!-- <div class="flex items-start">
                             <div
                                 class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fas fa-phone-alt text-[#D6A756] text-xl"></i>
@@ -42,7 +42,7 @@ const { t, locale } = useI18n()
                                     </a>
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Email with mailto link -->
                         <div class="flex items-start">
@@ -71,12 +71,12 @@ const { t, locale } = useI18n()
                                 <h4 class="font-bold text-lg">{{ t('contact.address_label') }}</h4>
                                 <p class="mt-1">{{ t('contact.address_line1') }}</p>
                                 <p class="mt-1">{{ t('contact.address_line2') }}</p>
-                                <p class="mt-1">{{ t('contact.address_line3') }}</p>
+                                <!-- <p class="mt-1">{{ t('contact.address_line3') }}</p> -->
                             </div>
                         </div>
 
                         <!-- Commercial Registration -->
-                        <div class="flex items-start">
+                        <!-- <div class="flex items-start">
                             <div
                                 class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
                                 <i class="fas fa-file-alt text-[#D6A756] text-xl"></i>
@@ -85,12 +85,12 @@ const { t, locale } = useI18n()
                                 <h4 class="font-bold text-lg">{{ t('contact.cr_label') }}</h4>
                                 <p class="mt-1">{{ t('contact.cr_value') }}</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
                 <!-- Map Section -->
-                <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-xl relative">
+                <!-- <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-xl relative">
                     <div class="h-full">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.444062526807!2d39.18273831541619!3d21.56826177482348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d06eb0eada53%3A0xa265b30c08915e0f!2z2KfZhNmF2LnZhdiv2Kog2KfZhNiv2YjZhdin2YU!5e0!3m2!1sen!2ssa!4v1658322347658!5m2!1sen!2ssa"
@@ -107,7 +107,7 @@ const { t, locale } = useI18n()
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

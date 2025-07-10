@@ -80,13 +80,13 @@ const scrollToSection = (hash: string): void => {
                             :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
                     </h3>
                     <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start">
+                        <!-- <li class="flex items-start">
                             <i class="fas fa-phone mt-1 mr-2 text-[#D6A756]"></i>
                             <a href="https://wa.me/+9665505651446" target="_blank"
                                 class="hover:underline hover:text-[#D6A756] transition-colors" dir="ltr">
                                 +9665505651446
                             </a>
-                        </li>
+                        </li> -->
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-2 text-[#D6A756]"></i>
                             <a href="mailto:info@jalalwan.com"
@@ -96,7 +96,8 @@ const scrollToSection = (hash: string): void => {
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-2 text-[#D6A756]"></i>
-                            <span>{{ t('footer.address') }}</span>
+                            <p class="mt-1">{{ t('contact.address_line1') }}</p>
+                                <p class="mt-1">{{ t('contact.address_line2') }}</p>
                         </li>
                     </ul>
                 </div>
