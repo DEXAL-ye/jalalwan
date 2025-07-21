@@ -133,7 +133,22 @@
         "cr_label": "السجل التجاري",
         "cr_value": "4030061641",
         "follow_us": "تابعنا",
-        "directions": "اتبع الإرشادات"
+        "directions": "اتبع الإرشادات",
+        "form_title": "أرسل لنا رسالة",
+        "form_name": "اسمك",
+        "form_name_placeholder": "أدخل اسمك الكامل",
+        "form_email": "البريد الإلكتروني",
+        "form_email_placeholder": "أدخل بريدك الإلكتروني",
+        "form_phone": "رقم الهاتف",
+        "form_phone_placeholder": "أدخل رقم هاتفك",
+        "form_message": "رسالتك",
+        "form_message_placeholder": "اكتب رسالتك هنا...",
+        "form_button": "إرسال الرسالة",
+        "form_sending": "جاري الإرسال...",
+        "form_success": "تم إرسال الرسالة بنجاح!",
+        "form_success_note": "سنتواصل معك في أقرب وقت ممكن.",
+        "form_error": "فشل الإرسال",
+        "form_error_note": "يرجى المحاولة مرة أخرى أو الاتصال بنا مباشرة."
     },
     "footer": {
         "description": "شركة رائدة في مجالها، تقدم حلولاً مبتكرة وخدمات عالية الجودة لعملائها في المملكة العربية السعودية والمنطقة.",

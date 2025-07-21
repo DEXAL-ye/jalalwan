@@ -1,6 +1,43 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { ref, reactive } from 'vue'
+
 const { t, locale } = useI18n()
+
+// Form data and state
+const formData = reactive({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+})
+
+const submissionStatus = ref<string | null>(null)
+const isSubmitting = ref(false)
+
+const submitForm = () => {
+    isSubmitting.value = true
+
+    // Simulate form submission (in real app, use axios or fetch)
+    setTimeout(() => {
+        const isSuccess = Math.random() > 0.2
+        submissionStatus.value = isSuccess ? 'success' : 'error'
+        isSubmitting.value = false
+
+        if (isSuccess) {
+            // Reset form on success
+            formData.name = ''
+            formData.email = ''
+            formData.phone = ''
+            formData.message = ''
+
+            // Clear status after 5 seconds
+            setTimeout(() => {
+                submissionStatus.value = null
+            }, 5000)
+        }
+    }, 1500)
+}
 </script>
 
 <template>
@@ -26,24 +63,6 @@ const { t, locale } = useI18n()
                     </h3>
 
                     <div class="space-y-7">
-                       
-                        <!-- <div class="flex items-start">
-                            <div
-                                class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-phone-alt text-[#D6A756] text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg">{{ t('contact.phone_label') }}</h4>
-                                <p class="mt-1">
-                                    <a href="https://wa.me/+9665505651446" target="_blank"
-                                        class="hover:underline transition-all  duration-300 hover:text-[#D6A756]"
-                                        dir="ltr">
-                                        +9665505651446
-                                    </a>
-                                </p>
-                            </div>
-                        </div> -->
-
                         <!-- Email with mailto link -->
                         <div class="flex items-start">
                             <div
@@ -71,43 +90,91 @@ const { t, locale } = useI18n()
                                 <h4 class="font-bold text-lg">{{ t('contact.address_label') }}</h4>
                                 <p class="mt-1">{{ t('contact.address_line1') }}</p>
                                 <p class="mt-1">{{ t('contact.address_line2') }}</p>
-                                <!-- <p class="mt-1">{{ t('contact.address_line3') }}</p> -->
                             </div>
                         </div>
-
-                        <!-- Commercial Registration -->
-                        <!-- <div class="flex items-start">
-                            <div
-                                class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center mr-4 flex-shrink-0">
-                                <i class="fas fa-file-alt text-[#D6A756] text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg">{{ t('contact.cr_label') }}</h4>
-                                <p class="mt-1">{{ t('contact.cr_value') }}</p>
-                            </div>
-                        </div> -->
                     </div>
                 </div>
 
-                <!-- Map Section -->
-                <!-- <div class="w-full lg:w-1/2 rounded-2xl overflow-hidden shadow-xl relative">
-                    <div class="h-full">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.444062526807!2d39.18273831541619!3d21.56826177482348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d06eb0eada53%3A0xa265b30c08915e0f!2z2KfZhNmF2LnZhdiv2Kog2KfZhNiv2YjZhdin2YU!5e0!3m2!1sen!2ssa!4v1658322347658!5m2!1sen!2ssa"
-                            class="w-full h-full min-h-[500px] border-0" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                <!-- Contact Form Section -->
+                <div class="w-full lg:w-1/2 bg-white rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-8 relative pb-4 text-[#9C0B26]">
+                        {{ t('contact.form_title') }}
+                        <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
+                            :class="locale === 'ar' ? 'right-0' : 'left-0'"></div>
+                    </h3>
 
-                        <div class="absolute bottom-4 right-4 bg-white rounded-lg shadow-md py-2 px-4">
-                            <a href="https://www.google.com/maps/place/JESA6619,+6619+Abu+Al+Fadl+Al+Mouhsi,+2603,+As+Salamah+District,+Jeddah+23436,+Saudi+Arabia/@21.5802697,39.1470876,18z/data=!3m1!4b1!4m10!1m2!2m1!1z2K3ZiiDYp9mE2LPZhNin2YXYqSAtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4!3m6!1s0x15c3da848293561b:0x3e8c805069fa976e!8m2!3d21.5802697!4d39.1490991!15sCqIB2K3ZiiDYp9mE2LPZhNin2YXYqSAtINij2KjZiCDYp9mE2YHYttmEINin2YTZhdit2LPZiiA2NjE5INis2K_YqSDYjDIzNDM2INin2YTZhdmF2YTZg9ipINin2YTYudix2KjZitipINin2YTYs9i52YjYr9mK2Kkg4oCTINmH2KfYqtmBIDAwOTY2NTA1MTQ0NiDYsy7YqiA0MDMwNTk1MzM4kgERY29tcG91bmRfYnVpbGRpbmfgAQA!16s%2Fg%2F11k6bby4xc?entry=ttu&g_ep=EgoyMDI1MDYyOS4wIKXMDSoASAFQAw%3D%3D"
-                                target="_blank"
-                                class="text-[#9C0B26] font-bold flex items-center hover:text-[#D6A756] transition-colors">
-                                <i class="fas fa-directions mr-2"></i>
-                                {{ t('contact.directions') }}
-                            </a>
+                    <form @submit.prevent="submitForm" class="space-y-6">
+                        <!-- Name Field -->
+                        <div>
+                            <label class="block text-[#7A7A7A] font-medium mb-2">
+                                {{ t('contact.form_name') }}
+                            </label>
+                            <input type="text" v-model="formData.name" required
+                                class="w-full px-4 py-3 rounded-lg border border-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#9C0B26]/50 focus:border-[#9C0B26] transition-all"
+                                :placeholder="t('contact.form_name_placeholder')">
+                        </div>
+
+                        <!-- Email Field -->
+                        <div>
+                            <label class="block text-[#7A7A7A] font-medium mb-2">
+                                {{ t('contact.form_email') }}
+                            </label>
+                            <input type="email" v-model="formData.email" required
+                                class="w-full px-4 py-3 rounded-lg border border-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#9C0B26]/50 focus:border-[#9C0B26] transition-all"
+                                :placeholder="t('contact.form_email_placeholder')">
+                        </div>
+
+                        <!-- Phone Field -->
+                        <div>
+                            <label class="block text-[#7A7A7A] font-medium mb-2">
+                                {{ t('contact.form_phone') }}
+                            </label>
+                            <input type="tel" v-model="formData.phone" required
+                                class="w-full px-4 py-3 rounded-lg border border-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#9C0B26]/50 focus:border-[#9C0B26] transition-all"
+                                :placeholder="t('contact.form_phone_placeholder')">
+                        </div>
+
+                        <!-- Message Field -->
+                        <div>
+                            <label class="block text-[#7A7A7A] font-medium mb-2">
+                                {{ t('contact.form_message') }}
+                            </label>
+                            <textarea v-model="formData.message" required rows="5"
+                                class="w-full px-4 py-3 rounded-lg border border-[#e0e0e0] focus:outline-none focus:ring-2 focus:ring-[#9C0B26]/50 focus:border-[#9C0B26] transition-all"
+                                :placeholder="t('contact.form_message_placeholder')"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" :disabled="isSubmitting"
+                            class="w-full bg-[#9C0B26] hover:bg-[#800920] text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center"
+                            :class="isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'">
+
+                            <span v-if="!isSubmitting">{{ t('contact.form_button') }}</span>
+                            <span v-else>{{ t('contact.form_sending') }}</span>
+
+                            <i class="fas ml-3" :class="isSubmitting ? 'fa-spinner fa-spin' : 'fa-paper-plane'"></i>
+                        </button>
+                    </form>
+
+                    <!-- Submission Status Messages -->
+                    <div v-if="submissionStatus === 'success'"
+                        class="mt-6 p-4 bg-green-50 text-green-700 rounded-lg flex items-start">
+                        <i class="fas fa-check-circle mt-1 mr-3 text-green-600"></i>
+                        <div>
+                            <p class="font-medium">{{ t('contact.form_success') }}</p>
+                            <p class="text-sm mt-1">{{ t('contact.form_success_note') }}</p>
                         </div>
                     </div>
-                </div> -->
+
+                    <div v-else-if="submissionStatus === 'error'"
+                        class="mt-6 p-4 bg-red-50 text-red-700 rounded-lg flex items-start">
+                        <i class="fas fa-exclamation-circle mt-1 mr-3 text-red-600"></i>
+                        <div>
+                            <p class="font-medium">{{ t('contact.form_error') }}</p>
+                            <p class="text-sm mt-1">{{ t('contact.form_error_note') }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
