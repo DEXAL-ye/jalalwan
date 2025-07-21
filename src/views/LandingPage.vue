@@ -20,7 +20,7 @@ const handleScroll = () => {
   const sections = [
     { id: 'home', element: document.getElementById('home') },
     { id: 'about', element: document.getElementById('about') },
-    { id: 'agents', element: document.getElementById('agents') },
+    { id: 'partners', element: document.getElementById('partners') },
     { id: 'contact', element: document.getElementById('contact') }
   ];
 
@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
     <Hero />
     <main class="container mx-auto px-4 py-12 flex-grow">
       <Home id="home" class="pt-28" />
-      <Agents id="agents" class="pt-28" />
+      <Agents id="partners" class="pt-28" />
       <About id="about" class="pt-28" />
       <Contact id="contact" class="pt-28" />
     </main>

@@ -19,10 +19,36 @@
         "title": "Brands",
         "description": "We are proud to represent leading brands in the world of beauty, and we always strive to expand our portfolio with new brands that share our vision for excellence"
     },
-    "brand_card": {
-        "category": "Professional Makeup",
-        "description": "Professional makeup products for every artist and enthusiast."
-    },
+    "brand_card": [
+        {
+            "category": "Professional Makeup",
+            "description": "Professional makeup products for every artist and enthusiast."
+        },
+        {
+            "category": "Cosmetics",
+            "description": "High-quality cosmetic products suitable for all tastes."
+        },
+        {
+            "category": "Cosmetics",
+            "description": "World-class beauty products from Paris"
+        },
+        {
+            "category": "Makeup",
+            "description": "Bold colors and Italian designs"
+        },
+        {
+            "category": "Makeup",
+            "description": "Trendy styles at affordable prices"
+        },
+        {
+            "category": "Cosmetics",
+            "description": "French-style beauty"
+        },
+        {
+            "category": "Makeup",
+            "description": "Italian beauty innovations"
+        }
+    ],
     "agencies_section": {
         "title": "We are seeking new agencies",
         "description": "We aspire to expand our portfolio of premium brands in the cosmetics and skincare industry. If you represent a brand looking for a professional distribution partner in the Saudi and Gulf market, we welcome the opportunity to collaborate with you.",
@@ -114,5 +140,6 @@
     "email": "info@jalalwan.com",
     "address": "As Salamah Dist, Jeddah, Kingdom of Saudi Arabia",
     "copyright": "All rights reserved © {year} Jumlat Al-Alwan   | Commercial Registration: 4030061641"
-  }
+  },
+  "our_partners": "Our Partners"
 }

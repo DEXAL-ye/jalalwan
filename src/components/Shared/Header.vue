@@ -20,7 +20,7 @@ const emit = defineEmits(['set-active-page']);
 const mobileMenuOpen = ref(false);
 const navigation = ref<NavigationItem[]>([
     { id: 'home', title: 'home' },
-    { id: 'agents', title: 'agent_system' },
+    { id: 'partners', title: 'our_partners' },
     { id: 'about', title: 'about' },
     { id: 'contact', title: 'contact_us' }
 ]);
