@@ -59,7 +59,7 @@ const coreValues = computed<CoreValue[]>(() => tm('core_values.values') as CoreV
                             class="bg-[#D6A756] hover:bg-[#c59442] text-[#222222] font-bold px-6 py-3 rounded-lg transition-colors">
                             {{ t('buttons.contact_us') }}
                         </a>
-                        <a href="#agents"
+                        <a href="#partners"
                             class="border-2 border-[#9C0B26] hover:bg-[#9C0B26] hover:text-white text-[#9C0B26] font-bold px-6 py-3 rounded-lg transition-colors">
                             {{ t('buttons.our_agencies') }}
                         </a>
@@ -85,7 +85,7 @@ const coreValues = computed<CoreValue[]>(() => tm('core_values.values') as CoreV
                             <p class="text-sm">{{ t('stats.customer') }}</p>
                         </div>
                         <div class="bg-[#222] text-white p-4 rounded-xl text-center">
-                            <p class="text-3xl font-bold">1</p>
+                            <p class="text-3xl font-bold">7</p>
                             <p class="text-sm">{{ t('stats.exclusive_agency') }}</p>
                         </div>
                         <div class="bg-[#D6A756] text-[#222] p-4 rounded-xl text-center">
