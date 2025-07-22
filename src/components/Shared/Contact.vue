@@ -18,7 +18,7 @@ const { t, locale } = useI18n()
 
             <div class="flex flex-col lg:flex-row gap-10 items-stretch">
                 <!-- Contact Information -->
-                <div class="w-full lg:w-1/2 bg-[#9C0B26] text-white rounded-2xl p-8 shadow-xl">
+                <div class="w-full  bg-[#9C0B26] text-white rounded-2xl p-8 shadow-xl">
                     <h3 class="text-2xl font-bold mb-8 relative pb-4">
                         {{ t('contact.info_heading') }}
                         <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
