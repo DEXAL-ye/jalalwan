@@ -18,13 +18,26 @@ const isSubmitting = ref(false)
 const submitForm = () => {
     isSubmitting.value = true
 
-    // Simulate form submission (in real app, use axios or fetch)
+    // Simulate form submission
     setTimeout(() => {
         const isSuccess = Math.random() > 0.2
         submissionStatus.value = isSuccess ? 'success' : 'error'
         isSubmitting.value = false
 
         if (isSuccess) {
+            // Compose email content
+            const subject = encodeURIComponent(`${t('contact.form_subject_prefix')} ${formData.name}`);
+            const body = encodeURIComponent(
+                `${t('contact.form_body_name')}: ${formData.name}\n\n` +
+                `${t('contact.form_body_email')}: ${formData.email}\n\n` +
+                `${t('contact.form_body_phone')}: ${formData.phone}\n\n` +
+                `${t('contact.form_body_message')}:\n${formData.message}`
+            );
+            
+            // Open email client
+            const mailtoLink = `mailto:info@jalalwan.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+
             // Reset form on success
             formData.name = ''
             formData.email = ''
@@ -179,3 +192,7 @@ const submitForm = () => {
         </div>
     </div>
 </template>
+
+<style scoped>
+/* Add any additional styles if needed */
+</style>
