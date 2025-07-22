@@ -1,56 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
-import { ref, reactive } from 'vue'
-
 const { t, locale } = useI18n()
-
-// Form data and state
-const formData = reactive({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-})
-
-const submissionStatus = ref<string | null>(null)
-const isSubmitting = ref(false)
-
-const submitForm = () => {
-    isSubmitting.value = true
-
-    // Simulate form submission
-    setTimeout(() => {
-        const isSuccess = Math.random() > 0.2
-        submissionStatus.value = isSuccess ? 'success' : 'error'
-        isSubmitting.value = false
-
-        if (isSuccess) {
-            // Compose email content
-            const subject = encodeURIComponent(`${t('contact.form_subject_prefix')} ${formData.name}`);
-            const body = encodeURIComponent(
-                `${t('contact.form_body_name')}: ${formData.name}\n\n` +
-                `${t('contact.form_body_email')}: ${formData.email}\n\n` +
-                `${t('contact.form_body_phone')}: ${formData.phone}\n\n` +
-                `${t('contact.form_body_message')}:\n${formData.message}`
-            );
-            
-            // Open email client
-            const mailtoLink = `mailto:info@jalalwan.com?subject=${subject}&body=${body}`;
-            window.location.href = mailtoLink;
-
-            // Reset form on success
-            formData.name = ''
-            formData.email = ''
-            formData.phone = ''
-            formData.message = ''
-
-            // Clear status after 5 seconds
-            setTimeout(() => {
-                submissionStatus.value = null
-            }, 5000)
-        }
-    }, 1500)
-}
 </script>
 
 <template>
@@ -109,7 +59,7 @@ const submitForm = () => {
                 </div>
 
                 <!-- Contact Form Section -->
-                <div class="w-full lg:w-1/2 bg-white rounded-2xl p-8 shadow-xl">
+                <!-- <div class="w-full lg:w-1/2 bg-white rounded-2xl p-8 shadow-xl">
                     <h3 class="text-2xl font-bold mb-8 relative pb-4 text-[#9C0B26]">
                         {{ t('contact.form_title') }}
                         <div class="absolute bottom-0 w-10 h-1 bg-[#D6A756]"
@@ -117,7 +67,7 @@ const submitForm = () => {
                     </h3>
 
                     <form @submit.prevent="submitForm" class="space-y-6">
-                        <!-- Name Field -->
+                    
                         <div>
                             <label class="block text-[#7A7A7A] font-medium mb-2">
                                 {{ t('contact.form_name') }}
@@ -127,7 +77,7 @@ const submitForm = () => {
                                 :placeholder="t('contact.form_name_placeholder')">
                         </div>
 
-                        <!-- Email Field -->
+                    
                         <div>
                             <label class="block text-[#7A7A7A] font-medium mb-2">
                                 {{ t('contact.form_email') }}
@@ -137,7 +87,7 @@ const submitForm = () => {
                                 :placeholder="t('contact.form_email_placeholder')">
                         </div>
 
-                        <!-- Phone Field -->
+                
                         <div>
                             <label class="block text-[#7A7A7A] font-medium mb-2">
                                 {{ t('contact.form_phone') }}
@@ -147,7 +97,6 @@ const submitForm = () => {
                                 :placeholder="t('contact.form_phone_placeholder')">
                         </div>
 
-                        <!-- Message Field -->
                         <div>
                             <label class="block text-[#7A7A7A] font-medium mb-2">
                                 {{ t('contact.form_message') }}
@@ -157,7 +106,7 @@ const submitForm = () => {
                                 :placeholder="t('contact.form_message_placeholder')"></textarea>
                         </div>
 
-                        <!-- Submit Button -->
+
                         <button type="submit" :disabled="isSubmitting"
                             class="w-full bg-[#9C0B26] hover:bg-[#800920] text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 flex items-center justify-center"
                             :class="isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-lg'">
@@ -169,7 +118,6 @@ const submitForm = () => {
                         </button>
                     </form>
 
-                    <!-- Submission Status Messages -->
                     <div v-if="submissionStatus === 'success'"
                         class="mt-6 p-4 bg-green-50 text-green-700 rounded-lg flex items-start">
                         <i class="fas fa-check-circle mt-1 mr-3 text-green-600"></i>
@@ -187,7 +135,7 @@ const submitForm = () => {
                             <p class="text-sm mt-1">{{ t('contact.form_error_note') }}</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

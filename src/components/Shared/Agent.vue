@@ -77,9 +77,9 @@ const brands = ref([
                         <img :src="brand.image" :alt="brand.name" class="max-h-32 object-contain">
                     </div>
                     <div class="p-6 text-center border-t-4 border-[#D6A756]">
-                        <span class="inline-block bg-[#9C0B26]/10 text-[#9C0B26] text-sm px-3 py-1 rounded-full mb-3">
+                        <!-- <span class="inline-block bg-[#9C0B26]/10 text-[#9C0B26] text-sm px-3 py-1 rounded-full mb-3">
                             {{ brand.category }}
-                        </span>
+                        </span> -->
                         <h3 class="text-xl font-bold text-[#222] mb-3">{{ brand.name }}</h3>
                         <p class="text-[#5A5A5A] text-sm min-h-[60px]">{{ brand.description }}</p>
                     </div>
